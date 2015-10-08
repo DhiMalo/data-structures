@@ -1,32 +1,39 @@
 var Queue = function(){
-  var beautifulNewObj = {};
-  var index = 0;
-  var storage = {};
-  beautifulNewObj.enqueue = queueMethods.enqueue;
-  beautifulNewObj.dequeue = queueMethods.dequeue;
-  beautifulNewObj.size = queueMethods.size;
-  // // _.extend(beautifulNewObj, queueMethods);
-  console.log('beautifulNewObj.enqueue is', beautifulNewObj.enqueue);
-  return beautifulNewObj;
+  var someInstance = {};
+  someInstance.index = 0;
+  someInstance.storage = {};
+  someInstance.enqueue = queueMethods.enqueue;
+  someInstance.dequeue = queueMethods.dequeue;
+  someInstance.size = queueMethods.size;
+  // // _.extend(someInstance, queueMethods);
+  //console.log('someInstance.enqueue is', someInstance.enqueue);
+  return someInstance;
 };
 
 var queueMethods = {};
-queueMethods.enqueue = function(){
-  storage[index] = value;
-  index++;
-};
-queueMethods.dequeue = function(){
-  if (index > 0) {
-    var shifted = storage[0];
-    storage[0] = storage[1];
-    index--;
-  }
-};
-queueMethods.size = function(){
-  return index; 
+
+queueMethods.enqueue = function(value){
+  this.storage[this.index] = value;
+  this.index++;
 };
 
-var lilqueue = Queue();
-console.log('lilqueue is', lilqueue);
+queueMethods.dequeue = function(){
+  if (this.index > 0) {
+    var shifted = this.storage[0];
+    this.storage[0] = this.storage[1];
+    this.index--;
+  }
+  return shifted; 
+};
+
+queueMethods.size = function(){
+  return this.index; 
+};
+
+var lilFuncSharedQueue = Queue();
+lilFuncSharedQueue.enqueue('a');
+lilFuncSharedQueue.enqueue('b');
+console.log ('size of lilFuncSharedQueue is', lilFuncSharedQueue.size())
+console.log('lilFuncSharedQueue is', lilFuncSharedQueue);
 
 
