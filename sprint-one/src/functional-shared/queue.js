@@ -2,11 +2,9 @@ var Queue = function(){
   var someInstance = {};
   someInstance.index = 0;
   someInstance.storage = {};
-  someInstance.push = queueMethods.enqueue;
-  someInstance.pop = queueMethods.dequeue;
+  someInstance.enqueue = queueMethods.enqueue;
+  someInstance.dequeue = queueMethods.dequeue;
   someInstance.size = queueMethods.size;
-  // // _.extend(someInstance, queueMethods);
-  //console.log('someInstance.enqueue is', someInstance.enqueue);
   return someInstance;
 };
 
@@ -30,10 +28,5 @@ queueMethods.size = function(){
   return this.index; 
 };
 
-// var lilFuncSharedQueue = Queue();
-// lilFuncSharedQueue.enqueue('a');
-// lilFuncSharedQueue.enqueue('b');
-// console.log ('size of lilFuncSharedQueue is', lilFuncSharedQueue.size())
-// console.log('lilFuncSharedQueue is', lilFuncSharedQueue);
 
 
