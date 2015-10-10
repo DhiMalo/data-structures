@@ -61,14 +61,14 @@ Graph.prototype.forEachNode = function(cb){
 };
 
 //implementation tests (remove at completion)
-var newGraph = new Graph('flowers');
-console.log(newGraph);
-newGraph.addNode('puppies');
-newGraph.addNode('kittens');
-newGraph.addNode('penguins');
-console.log('after adding 3 nodes, newGraph is: ', newGraph);
-newGraph.removeNode('puppies');
-console.log('after removing a node, newGraph is: ', newGraph);
+// var newGraph = new Graph('flowers');
+// console.log(newGraph);
+// newGraph.addNode('puppies');
+// newGraph.addNode('kittens');
+// newGraph.addNode('penguins');
+// console.log('after adding 3 nodes, newGraph is: ', newGraph);
+// newGraph.removeNode('puppies');
+// console.log('after removing a node, newGraph is: ', newGraph);
 
 
 
