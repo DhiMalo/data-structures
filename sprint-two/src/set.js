@@ -13,7 +13,7 @@ setPrototype.add = function(item){
 setPrototype.contains = function(item){
   var bool = false;
   for (var i = 0; i < this._storage.length; i++) {
-    if (i === item) {
+    if (this._storage[i] === item) {
       bool = true;
     };
   };
@@ -21,7 +21,7 @@ setPrototype.contains = function(item){
 };
 
 setPrototype.remove = function(item){
-  
+
 };
 
 /*
