@@ -16,6 +16,10 @@ HashTable.prototype.remove = function(k){
 
 };
 
+hash1 = new HashTable;
+console.log('hash1 sample is : ', hash1);
+hash1.insert('Steven', 'Seagal');
+console.log('after insertion, hash1 sample is : ', hash1);
 
 
 /*
