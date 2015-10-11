@@ -12,20 +12,24 @@ binarySearchMethods.insert = function(value) {
   //return new object and pass in a new instantiation with the new value
   if (value > this.value && !this.right.value) {
     this.right = BinarySearchTree(value);
-    // this.right.value = value;
     };
   if (value > this.value && this.right.value) {
+    if (value > this.right.value) {
     this.right.right = BinarySearchTree(value);
-    // this.right.right.value = value;
-  }
+    } else {
+      this.right.left = BinarySearchTree(value);
+    };
+  };
   if (value < this.value && !this.left.value) {
     this.left = BinarySearchTree(value);
-    // this.left.value = value;
   }
   if (value < this.value && this.left.value) {
-    this.left.left = BinarySearchTree(value);
-    // this.left.left.value = value;
-  }
+    if (value < this.left.value) {
+      this.left.left = BinarySearchTree(value);
+    } else {
+      this.left.right = BinarySearchTree(value);
+    }
+  };
 };
 
 binarySearchMethods.contains = function(value) {
