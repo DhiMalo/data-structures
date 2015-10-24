@@ -1,46 +1,38 @@
-// ![Tree image]
-
-// * A `tree` class, in functional with shared methods style, with the following
-//   properties:
-//   - [X] `.children` property, an array containing a number of subtrees
-//   - [X] `.addChild()` method, takes any value, sets that as the target of a node, and adds that node as a child of the tree
-//   - [X] A `.contains()` method, takes any input and returns a boolean reflecting whether it can be found as the value of the target node or any descendant node
-//   - [X] What is the time complexity of the above functions?  The .addChild function has a constant (or O(1) time complexity, whereas the .contains function currently has a linear time complexity (O(n)). I might be able to change this by using an object instead of an array for child storage, which might be something to return to.
-
-var Tree = function(value) {
+/* Time complexity assessment:
+The treeMethods.addChild function has Constant time complexity, O(1)
+The .contains function has a linear time complexity, O(n). Potential to iterate on this by using an object instead of an array for child storage and might be interesting to return to later.
+*/
+// Tree implementation using a functional-shared method.
+var Tree = function(value) { // Always pass in a tree value at instantiation time.
   var newTree = {};
   newTree.value = value;
-
-  newTree.children = [];  // fixed
+  newTree.children = []; // an array that will contain a number of sub-trees
   newTree.addChild = treeMethods.addChild;
   newTree.contains = treeMethods.contains;
-
   return newTree;
 };
 
-//Remember: If invoking the constructor, always pass arguments for the params!!!!!
-
 var treeMethods = {};
 
-treeMethods.addChild = function(value){
+//takes any value, sets that as the target of a node, and adds that node as a child of the tree
+
+treeMethods.addChild = function(value) {
   this.children.push(Tree(value));
   return this.children;
 };
 
-treeMethods.contains = function(target){
+//The .contains method takes any input and returns a boolean reflecting whether it can be found as the value of the target node or any descendant node.
+
+treeMethods.contains = function(target) {
   var resultBool = false;
   if (this.value === target) {
     resultBool = true;
   } else {
-    for (var i = 0; i < this.children.length; i++) { 
+    for (var i = 0; i < this.children.length; i++) {
       if (this.children[i].contains(target)) {
-    resultBool = true;
+        resultBool = true;
       };
     };
   };
-    return resultBool;
+  return resultBool;
 };
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */
