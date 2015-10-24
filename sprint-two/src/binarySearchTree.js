@@ -34,21 +34,47 @@ binarySearchMethods.insert = function(value) {
 
 binarySearchMethods.contains = function(value) {
   
+  var bool = false;
+
+  if value === this.value {
+    bool = true;
+  }; //if they're equal, it's the head of the tree
+
+  if (value > this.value) { //if val is greater than tree val
+    // check right
+    if (value = this.right.value) {      
+      bool = true;
+    } 
+  };
+
+  if (value < this.value) { // check left if val is less
+  // check left
+    if (value = this.left.value) {      
+      bool = true;
+    } 
+  };
+
+  if (this.right.(value)) { // check right if val is less
+  // check right
+  if (value = this.left.value) {      
+      bool = true;
+    } 
+  };
+
+  return bool;
+
 };
 
 binarySearchMethods.depthFirstLog = function(callback) {
-  _.each(valuesInTree, callback)
+  _.each(valuesInTree, binarySearchMethods.contains)
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-binTree1 = BinarySearchTree(5)
-binTree1.insert(2);
-console.log('3 is smaller than', this.value, 'as expected?: ', 3<this.value)
-binTree1.insert(3);
-binTree1.insert(7);
-binTree1.insert(6);
-console.log(binTree1);
-console.log(binTree1.left.right.value)//3
-console.log(binTree1.right.left.value)//6
+// binTree1 = BinarySearchTree(5)
+// binTree1.insert(2);
+// binTree1.insert(3);
+// binTree1.insert(7);
+// console.log(binTree1.contains(7))
+// expect(binTree1.contains(8))
