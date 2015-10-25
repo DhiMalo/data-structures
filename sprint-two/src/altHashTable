@@ -1,0 +1,84 @@
+/*
+Time complexity assessment:
+-The insertion process does not require iteration throught the full data, but the bucket data.  Therefore it has a linear time complexity. 
+-The retrieval process takes place in constant time since with the hashing feature the key gives direct access to the desired value.
+
+Some helpful background: 
+-A tupol is an ordinal (x,y) storage array. It always holds only ['two', 'values']. :o)
+-A bucket in this implementation is simply a nested array assigned to a given index.  It holds each potential tupol of data.
+ */
+
+var HashTable = function() {
+  this._limit = 8;
+  this._storage = LimitedArray(this._limit);
+};
+
+HashTable.prototype.insert = function(key, value) {
+  
+  var index = getIndexBelowMaxForKey(key, this._limit); // this runs hashing function
+
+  //To implement insert:
+    // insert a key and value
+    // there cannot be duplicate keys- overwrite them if they come up.
+    // no return value is necessary.
+
+  if (!bucket) {
+    var bucket = [];
+    this._storage.push(bucket); // put a bucket at the index location
+  }
+
+  for (var i = 0; i < bucket.length; i++) {
+    var tuple = bucket[index]; 
+    if (tuple[0] === key) { // there cannot be duplicate keys- overwrite them if they come up.
+      tuple[1] = value;
+      bool = true;
+      break;
+    } else {
+      tupol[0] = key;
+      tupol[1] = value;
+    }
+    
+  }
+}
+
+HashTable.prototype.retrieve = function(key) {
+  var index = getIndexBelowMaxForKey(key, this._limit);
+  
+
+  if (bucket === undefined) {
+    return null;
+  }
+  var bucket = this._storage.get(index);
+
+  for (var i = 0; i < bucket.length; i++) {
+    var tuple = bucket[index];
+    if (tuple[0] === key) {
+      return tuple[1];
+    }
+  }
+}
+
+HashTable.prototype.remove = function(key) {
+  var index = getIndexBelowMaxForKey(key, this._limit); //this runs hashing func
+
+  var bucket = this._storage.get(index);
+  if (bucket === undefined) {
+    return null;
+  };
+
+  for (var i = 0; i < bucket.length; i++) {
+    var tuple = bucket[i];
+    if (tuple[0] === key) {
+      bucket.splice(i, 1);
+      return tuple[1];
+      break;
+    };
+  };
+  return null;
+
+};
+
+hash1 = new HashTable;
+console.log('hash1 sample is : ', hash1);
+hash1.insert('Steven', 'Seagal');
+console.log('after insertion, hash1 sample is : ', hash1);
